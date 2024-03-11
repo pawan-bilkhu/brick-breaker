@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5qup7kmxmjcs"]
+
+[ext_resource type="Script" path="res://levels/test_level.gd" id="1_1optl"]
+[ext_resource type="PackedScene" uid="uid://6ufaqkarj8h4" path="res://walls/sidewall_static.tscn" id="1_sh2ya"]
+[ext_resource type="PackedScene" uid="uid://ce17hm24csgjd" path="res://walls/topwall_static.tscn" id="2_iyhln"]
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_1optl")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="right_sidewall_static" parent="Walls" instance=ExtResource("1_sh2ya")]
+position = Vector2(0, 360)
+
+[node name="left_sidewall_static" parent="Walls" instance=ExtResource("1_sh2ya")]
+position = Vector2(1280, 360)
+
+[node name="topwall_static" parent="Walls" instance=ExtResource("2_iyhln")]
+position = Vector2(640, 0)
+
+[node name="bottomwall_static" parent="Walls" instance=ExtResource("2_iyhln")]
+position = Vector2(640, 720)
+
+[node name="Spawn" type="Node" parent="."]
+
+[node name="BallSpawn" type="Marker2D" parent="Spawn"]
+position = Vector2(640, 360)
+
+[node name="Sprites" type="Node" parent="."]
