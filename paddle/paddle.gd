@@ -17,21 +17,22 @@ func _ready():
 
 func _physics_process(delta):
 	
-	if Input.is_action_pressed("move_right") and (global_position.x + (sprite_width/2))< screen_width_max:
+	if Input.is_action_pressed("move_right") and (global_position.x + (sprite_width*scale.x/2))< screen_width_max:
 		global_position.x += speed*delta
-	elif Input.is_action_pressed("move_left") and (global_position.x - (sprite_width/2)) > screen_width_min:
+	elif Input.is_action_pressed("move_left") and (global_position.x - (sprite_width*scale.x/2)) > screen_width_min:
 		global_position.x -= speed*delta
 		
 	# print(global_position.x + (sprite_width/2))
 
 func set_scale_x(value: float) -> void:
 	print("Before width: %f" % sprite_width)
+	print("Global Position: (%f, %f) " % [global_position.x, global_position.y])
+	print("Relative Position: (%f, %f)" % [position.x, position.y])
 	scale.x = value
-	sprite_width *= value
-	print("After width: %f" % sprite_width)
+	print("After width: %f" % (sprite_width*scale.x))
 
 func on_paddle_grow() -> void:
-	if scale.x < 4:
+	if scale.x < 10:
 		set_scale_x(scale.x + 0.25)
 
 func on_paddle_shrink() -> void:
@@ -41,5 +42,5 @@ func on_paddle_shrink() -> void:
 func _on_area_2d_body_entered(body):
 	if body.is_in_group(GameManager.GROUP_PADDLE_GROW):
 		# print("Grow Paddle")
+		print("Paddle Grow")
 		body.power_ability()
-		body.destroy()

@@ -23,4 +23,5 @@ func destory() -> void:
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	# print("I have been destroyed off screen")
 	destory()

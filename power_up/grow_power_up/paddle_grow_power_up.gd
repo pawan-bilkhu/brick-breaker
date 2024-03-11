@@ -10,6 +10,10 @@ func _ready():
 
 func power_ability() -> void:
 	GameManager.paddle_grow.emit()
+	destroy()
 
 func destroy() -> void:
 	super.destory()
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	super._on_visible_on_screen_notifier_2d_screen_exited()

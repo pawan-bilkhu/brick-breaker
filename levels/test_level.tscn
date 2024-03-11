@@ -24,7 +24,7 @@ position = Vector2(640, 720)
 [node name="Spawn" type="Node" parent="."]
 
 [node name="BallSpawn" type="Marker2D" parent="Spawn"]
-position = Vector2(640, 360)
+position = Vector2(640, 76)
 
 [node name="PaddleSpawn" type="Marker2D" parent="Spawn"]
 position = Vector2(640, 700)
