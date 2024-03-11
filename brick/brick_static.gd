@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var health: int = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -18,9 +18,10 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group(GameManager.GROUP_BALL):
-		print(health)
+		# print(health)
 		health-=1
 		if health < 0:
+			GameManager.create_object(global_position, GameManager.OBJECTS.PADDLE_GROW)
 			queue_free()
 			return
 		animated_sprite_2d.set_frame(health)

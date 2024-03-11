@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://3lwgcufnqi0k"]
+
+[ext_resource type="Script" path="res://paddle/paddle.gd" id="1_ff8rd"]
+[ext_resource type="Texture2D" uid="uid://br5gbxayth7wh" path="res://assets/bat/bat.png" id="2_ekggy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cnhwn"]
+radius = 8.0
+height = 144.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqdbm"]
+height = 160.0
+
+[node name="PaddleRigid" type="StaticBody2D"]
+script = ExtResource("1_ff8rd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ekggy")
+
+[node name="Physics2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cnhwn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Hitbox2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mqdbm")
+debug_color = Color(0.980392, 0, 0.372549, 0.419608)
