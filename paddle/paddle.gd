@@ -25,11 +25,11 @@ func _physics_process(delta):
 	# print(global_position.x + (sprite_width/2))
 
 func set_scale_x(value: float) -> void:
-	print("Before width: %f" % sprite_width)
-	print("Global Position: (%f, %f) " % [global_position.x, global_position.y])
-	print("Relative Position: (%f, %f)" % [position.x, position.y])
+	# print("Before width: %f" % sprite_width)
+	# print("Global Position: (%f, %f) " % [global_position.x, global_position.y])
+	# print("Relative Position: (%f, %f)" % [position.x, position.y])
 	scale.x = value
-	print("After width: %f" % (sprite_width*scale.x))
+	# print("After width: %f" % (sprite_width*scale.x))
 
 func on_paddle_grow() -> void:
 	if scale.x < 10:
@@ -40,7 +40,4 @@ func on_paddle_shrink() -> void:
 		set_scale_x(scale.x - 0.25)
 	
 func _on_area_2d_body_entered(body):
-	if body.is_in_group(GameManager.GROUP_PADDLE_GROW):
-		# print("Grow Paddle")
-		print("Paddle Grow")
-		body.power_ability()
+	pass

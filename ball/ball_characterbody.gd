@@ -19,3 +19,9 @@ func _physics_process(delta):
 	if velocity.length() >= MAX_SPEED:
 		return
 	velocity = velocity * acceleration
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	GameManager.ball_destroyed.emit()
+	queue_free()
+	# print("The ball has been destroyed off screen")
