@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://d148t1n0512jm"]
+
+[ext_resource type="PackedScene" uid="uid://b5s6y5d7gmjv8" path="res://power_up/power_up_base.tscn" id="1_7j3nx"]
+[ext_resource type="Script" path="res://power_up/power_up_shrink/power_up_shrink.gd" id="2_j27wi"]
+[ext_resource type="Texture2D" uid="uid://de4v2ia2m1bca" path="res://assets/down/5.png" id="3_k3wkl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gb27"]
+size = Vector2(56, 34)
+
+[node name="PowerUpShrink" instance=ExtResource("1_7j3nx")]
+texture = ExtResource("3_k3wkl")
+script = ExtResource("2_j27wi")
+
+[node name="Hitbox2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_5gb27")
+debug_color = Color(0.988235, 0, 0.317647, 0.419608)

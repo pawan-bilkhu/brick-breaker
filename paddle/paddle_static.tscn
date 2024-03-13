@@ -10,7 +10,7 @@ size = Vector2(18.0003, 146)
 radius = 13.0
 height = 160.0
 
-[node name="PaddleStatic" type="StaticBody2D"]
+[node name="PaddleStatic" type="StaticBody2D" groups=["paddle"]]
 script = ExtResource("1_dm8ew")
 speed = 600.0
 sprite_scale_x = 1.0
@@ -24,6 +24,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_q853u")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.957281, 1.00464)
 
 [node name="Hitbox2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.5708

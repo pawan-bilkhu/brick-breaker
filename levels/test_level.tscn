@@ -18,13 +18,10 @@ position = Vector2(1280, 360)
 [node name="topwall_static" parent="Walls" instance=ExtResource("2_iyhln")]
 position = Vector2(640, 0)
 
-[node name="bottomwall_static" parent="Walls" instance=ExtResource("2_iyhln")]
-position = Vector2(640, 720)
-
 [node name="Spawn" type="Node" parent="."]
 
 [node name="BallSpawn" type="Marker2D" parent="Spawn"]
-position = Vector2(640, 76)
+position = Vector2(640, 450)
 
 [node name="PaddleSpawn" type="Marker2D" parent="Spawn"]
 position = Vector2(640, 700)
