@@ -11,6 +11,7 @@ class_name PowerUpBase
 var speed: float = 0
 
 func _ready():
+	GameManager.on_zero_ball.connect(destroy)
 	speed = randf_range(min_speed, max_speed)
 	scale.x = scale_x
 	scale.y = scale_y

@@ -23,7 +23,8 @@ func _on_area_2d_body_entered(body):
 		# print(health)
 		health-=1
 		if health < 0:
-			GameManager.create_power_up(global_position)
+			if randf() > 0.5:
+				GameManager.create_power_up(global_position)
 			queue_free()
 			return
 		animated_sprite_2d.set_frame(health)

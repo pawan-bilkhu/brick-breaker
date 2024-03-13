@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://btms4exfpuomw"]
+
+[ext_resource type="PackedScene" uid="uid://b5s6y5d7gmjv8" path="res://power_up/power_up_base.tscn" id="1_xi46w"]
+[ext_resource type="Texture2D" uid="uid://t0uq42x2auh5" path="res://assets/rain/rain2.png" id="2_5orim"]
+[ext_resource type="Script" path="res://power_up/power_up_multiball/power_up_multiball.gd" id="3_rin5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33dcx"]
+size = Vector2(56, 36)
+
+[node name="PowerUpMultiball" instance=ExtResource("1_xi46w")]
+texture = ExtResource("2_5orim")
+script = ExtResource("3_rin5y")
+
+[node name="Hitbox2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_33dcx")
+debug_color = Color(0.968627, 0, 0.462745, 0.419608)

@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5qup7kmxmjcs"]
+[gd_scene load_steps=6 format=3 uid="uid://b5qup7kmxmjcs"]
 
 [ext_resource type="Script" path="res://levels/test_level.gd" id="1_1optl"]
 [ext_resource type="PackedScene" uid="uid://6ufaqkarj8h4" path="res://walls/sidewall_static.tscn" id="1_sh2ya"]
 [ext_resource type="PackedScene" uid="uid://ce17hm24csgjd" path="res://walls/topwall_static.tscn" id="2_iyhln"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_cspc2"]
+font_size = 50
+font_color = Color(1, 0, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ymgau"]
+font_size = 50
+font_color = Color(1, 1, 0.321569, 1)
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_1optl")
+countdown_time = 3
 
 [node name="Walls" type="Node" parent="."]
 
@@ -27,3 +36,34 @@ position = Vector2(640, 450)
 position = Vector2(640, 700)
 
 [node name="Sprites" type="Node" parent="."]
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="CountdownLabel" type="Label" parent="Labels"]
+z_index = 10
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -34.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "00"
+label_settings = SubResource("LabelSettings_cspc2")
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Labels"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
+text = "00"
+label_settings = SubResource("LabelSettings_ymgau")
+
+[node name="GameStartTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="GameStartTimer" to="." method="_on_game_start_timer_timeout"]
