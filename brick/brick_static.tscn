@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cx5qtgchmwt1a"]
+[gd_scene load_steps=34 format=3 uid="uid://cx5qtgchmwt1a"]
 
 [ext_resource type="Texture2D" uid="uid://cfj8kvkruws3o" path="res://assets/normal/1.png" id="1_d751u"]
 [ext_resource type="Script" path="res://brick/brick_static.gd" id="1_pv18p"]
@@ -8,6 +8,28 @@
 [ext_resource type="Texture2D" uid="uid://bw8rjeecvov63" path="res://assets/normal/5.png" id="5_8bwsu"]
 [ext_resource type="Texture2D" uid="uid://df1iinfyowb6m" path="res://assets/normal/6.png" id="6_opw8n"]
 [ext_resource type="Texture2D" uid="uid://bjrpdrislir45" path="res://assets/normal/7.png" id="7_47glo"]
+[ext_resource type="Texture2D" uid="uid://g6hygtlj6wig" path="res://assets/neon/glow/1.png" id="9_23ox6"]
+[ext_resource type="Texture2D" uid="uid://dedvwb52d83oy" path="res://assets/neon/glow/2.png" id="10_n5l75"]
+[ext_resource type="Texture2D" uid="uid://c0ss7yghilp7i" path="res://assets/neon/glow/3.png" id="11_4ruq5"]
+[ext_resource type="Texture2D" uid="uid://cckv8r8hsd3ri" path="res://assets/neon/glow/4.png" id="12_4achs"]
+[ext_resource type="Texture2D" uid="uid://bg8djxbuw5h4x" path="res://assets/neon/glow/5.png" id="13_otwrr"]
+[ext_resource type="Texture2D" uid="uid://dpmhfmmue2gnd" path="res://assets/neon/glow/6.png" id="14_3aidt"]
+[ext_resource type="Texture2D" uid="uid://te0s0plqkoer" path="res://assets/neon/glow/7.png" id="15_2yk12"]
+[ext_resource type="Texture2D" uid="uid://b5pp5wn0gjs66" path="res://assets/neon/1.png" id="16_d3km6"]
+[ext_resource type="Texture2D" uid="uid://dy0accnly2my7" path="res://assets/neon/2.png" id="17_qr6vy"]
+[ext_resource type="Texture2D" uid="uid://qds7ehvj3yhl" path="res://assets/neon/3.png" id="18_2uf2h"]
+[ext_resource type="Texture2D" uid="uid://t8t6k7kv2c0s" path="res://assets/neon/4.png" id="19_lsx3d"]
+[ext_resource type="Texture2D" uid="uid://xirgjypni2cr" path="res://assets/neon/5.png" id="20_lrohu"]
+[ext_resource type="Texture2D" uid="uid://cpycohck57pe6" path="res://assets/neon/6.png" id="21_5xhub"]
+[ext_resource type="Texture2D" uid="uid://b6wqe6jf0riia" path="res://assets/neon/7.png" id="22_vckym"]
+[ext_resource type="Texture2D" uid="uid://csfifp63xwbxe" path="res://assets/winter/s1.png" id="23_fu3bl"]
+[ext_resource type="Texture2D" uid="uid://y78rn7o1pqy4" path="res://assets/winter/s2.png" id="24_i5kof"]
+[ext_resource type="Texture2D" uid="uid://c332egm1goei5" path="res://assets/winter/s3.png" id="25_gxk2u"]
+[ext_resource type="Texture2D" uid="uid://uialvunkshyi" path="res://assets/winter/s4.png" id="26_tunnp"]
+[ext_resource type="Texture2D" uid="uid://x8dtgtmwl2ly" path="res://assets/winter/s5.png" id="27_adhm3"]
+[ext_resource type="Texture2D" uid="uid://cytdpkd37e632" path="res://assets/winter/s6.png" id="28_qp0kn"]
+[ext_resource type="Texture2D" uid="uid://clj751kxcgps6" path="res://assets/winter/s7.png" id="29_03off"]
+[ext_resource type="Texture2D" uid="uid://6w0e51hqglap" path="res://assets/winter/s8.png" id="30_5rxem"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hasol"]
 animations = [{
@@ -36,6 +58,87 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_23ox6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n5l75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4ruq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4achs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_otwrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3aidt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2yk12")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_d3km6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qr6vy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2uf2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_lsx3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_lrohu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5xhub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vckym")
+}],
+"loop": true,
+"name": &"neon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_fu3bl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_i5kof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gxk2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_tunnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_adhm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_qp0kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_03off")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_5rxem")
+}],
+"loop": true,
+"name": &"snow",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8oyq"]
@@ -47,6 +150,7 @@ size = Vector2(54, 32)
 [node name="BrickStatic" type="StaticBody2D" node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("1_pv18p")
 animated_sprite_2d = NodePath("AnimatedSprite2D")
+animation_tracks = Array[StringName]([&"default", &"glow", &"neon", &"snow"])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hasol")

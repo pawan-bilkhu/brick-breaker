@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgow4ar3j0ft8"]
+
+[ext_resource type="PackedScene" uid="uid://b5s6y5d7gmjv8" path="res://power_up/power_up_base.tscn" id="1_sf3ef"]
+[ext_resource type="Texture2D" uid="uid://b8ofkocryio3b" path="res://assets/miscellaneous/electric.png" id="2_hobl5"]
+[ext_resource type="Script" path="res://power_up/power_up_shoot/power_up_shoot.gd" id="3_eoaw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe5fd"]
+size = Vector2(53, 52)
+
+[node name="PowerUpShoot" instance=ExtResource("1_sf3ef")]
+texture = ExtResource("2_hobl5")
+script = ExtResource("3_eoaw0")
+
+[node name="Hitbox2D" parent="Area2D" index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_pe5fd")
+debug_color = Color(0.988235, 0, 0.309804, 0.419608)

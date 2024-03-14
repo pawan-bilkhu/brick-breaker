@@ -5,6 +5,7 @@ signal paddle_grow
 signal paddle_shrink
 signal multiball
 signal on_zero_ball
+signal paddle_shoot
 
 
 # Ball Signal
@@ -13,7 +14,6 @@ signal ball_destroyed
 
 # Groups
 const GROUP_BALL: String = "ball"
-const GROUP_PADDLE_GROW: String = "paddle_grow"
 const GROUP_PADDLE: String = "paddle"
 
 
@@ -24,11 +24,13 @@ enum SPRITES {
 	PADDLE,
 	PADDLE_GROW,
 	PADDLE_SHRINK,
-	MULTIBALL
+	MULTIBALL,
+	PADDLE_SHOOT
 }
 
 # A collection of Power Up Sprite Objects
-var POWER_UPS: Array[SPRITES] = [SPRITES.PADDLE_GROW, SPRITES.PADDLE_SHRINK, SPRITES.MULTIBALL]
+var POWER_UPS: Array[SPRITES] = [SPRITES.PADDLE_GROW, SPRITES.PADDLE_SHRINK, SPRITES.MULTIBALL, SPRITES.PADDLE_SHOOT]
+var BRICK_ANIMATION_TRACKS: Array[StringName] = ["default", "glow", "neon", "snow"]
 
 # All Sprite Packed Scenes
 var SIMPLE_SCENE: Dictionary = {
@@ -38,6 +40,7 @@ var SIMPLE_SCENE: Dictionary = {
 	SPRITES.PADDLE_GROW : preload("res://power_up/power_up_grow/power_up_grow.tscn"),
 	SPRITES.PADDLE_SHRINK : preload("res://power_up/power_up_shrink/power_up_shrink.tscn"),
 	SPRITES.MULTIBALL : preload("res://power_up/power_up_multiball/power_up_multiball.tscn"),
+	SPRITES.PADDLE_SHOOT : preload("res://power_up/power_up_shoot/power_up_shoot.tscn")
 }
 
 
@@ -77,9 +80,13 @@ func create_power_up(start_position: Vector2) -> void:
 
 
 func create_bricks(max_rows: int, max_columns: int, starting_position: Vector2, spacing_x: int, spacing_y: int):
+	
+	
 	var brick_spawn = Marker2D.new()
+	var animation_track = BRICK_ANIMATION_TRACKS.pick_random()
 	call_add_child(brick_spawn)
 	brick_spawn.position = starting_position
+	
 	for row in max_rows:
 		for column in max_columns:
 			var brick_sprite = SIMPLE_SCENE[SPRITES.BRICK].instantiate()
@@ -89,9 +96,9 @@ func create_bricks(max_rows: int, max_columns: int, starting_position: Vector2, 
 			
 			# I don't like this type of calculation, it relies on the scene 
 			# too much and specific insight into the animation track
-			
+			brick_sprite.animated_sprite_2d.animation = animation_track
 			brick_sprite.frame_count = ( 
-				brick_sprite.animated_sprite_2d.get_sprite_frames().get_frame_count("default")-1 
+				brick_sprite.animated_sprite_2d.get_sprite_frames().get_frame_count(animation_track)-1 
 				)
 			if row > brick_sprite.frame_count:
 				brick_sprite.health = 0
