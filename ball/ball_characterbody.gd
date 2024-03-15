@@ -3,12 +3,12 @@ extends CharacterBody2D
 @export var speed: float = 200
 @export var scale_x: float = 0
 @export var scale_y: float = 0
-@export var MAX_SPEED: float = 800
+@export var MAX_SPEED: float = 900
 @export var acceleration: float = 1.02
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity.y = randf_range(speed, 2*speed) * float((-1)**randi()%2)
-	velocity.x = randf_range(speed, 2*speed) * float((-1)**randi()%2)
+	velocity.y = speed * float((-1)**randi()%2)
+	velocity.x = speed * float((-1)**randi()%2)
 	scale = Vector2(scale_x, scale_y)
 
 

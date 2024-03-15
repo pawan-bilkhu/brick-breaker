@@ -31,8 +31,10 @@ func create_multiple_balls() -> void:
 
 
 func create_ball() -> void:
-	GameManager.create_ball(Vector2(randf_range(200, 1000),ball_spawn.position.y))
-
+	if GameManager.get_total_ball_count() == 0:
+		GameManager.create_ball(ball_spawn.position)
+	else:
+		GameManager.create_ball(Vector2(randf_range(200, 1000),ball_spawn.position.y))
 
 func on_ball_destroyed() -> void:
 	if GameManager.get_total_ball_count() > 0:

@@ -12,6 +12,7 @@ const screen_width_min: float = 0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var shoot_power_timer: Timer = $ShootPowerTimer
+@onready var projectile_spawn = $ProjectileSpawn
 
 
 func _ready():
@@ -31,7 +32,7 @@ func _physics_process(delta):
 
 
 	if Input.is_action_just_pressed("shoot") and can_shoot:
-		GameManager.create_object(global_position, GameManager.SPRITES.PROJECTILE)
+		GameManager.create_object(projectile_spawn.global_position, GameManager.SPRITES.PROJECTILE)
 	# print(global_position.x + (sprite_width/2))
 
 
