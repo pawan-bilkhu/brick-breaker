@@ -147,10 +147,9 @@ size = Vector2(52, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvjpn"]
 size = Vector2(54, 32)
 
-[node name="BrickStatic" type="StaticBody2D" node_paths=PackedStringArray("animated_sprite_2d")]
+[node name="BrickStatic" type="StaticBody2D" node_paths=PackedStringArray("animated_sprite_2d") groups=["brick"]]
 script = ExtResource("1_pv18p")
 animated_sprite_2d = NodePath("AnimatedSprite2D")
-animation_tracks = Array[StringName]([&"default", &"glow", &"neon", &"snow"])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hasol")

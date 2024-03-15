@@ -15,6 +15,8 @@ signal ball_destroyed
 # Groups
 const GROUP_BALL: String = "ball"
 const GROUP_PADDLE: String = "paddle"
+const GROUP_BRICK: String = "brick"
+const GROUP_PROJECTILE: String = "projectile"
 
 
 # Collection of all Sprite Objects
@@ -25,7 +27,8 @@ enum SPRITES {
 	PADDLE_GROW,
 	PADDLE_SHRINK,
 	MULTIBALL,
-	PADDLE_SHOOT
+	PADDLE_SHOOT,
+	PROJECTILE,
 }
 
 # A collection of Power Up Sprite Objects
@@ -40,7 +43,8 @@ var SIMPLE_SCENE: Dictionary = {
 	SPRITES.PADDLE_GROW : preload("res://power_up/power_up_grow/power_up_grow.tscn"),
 	SPRITES.PADDLE_SHRINK : preload("res://power_up/power_up_shrink/power_up_shrink.tscn"),
 	SPRITES.MULTIBALL : preload("res://power_up/power_up_multiball/power_up_multiball.tscn"),
-	SPRITES.PADDLE_SHOOT : preload("res://power_up/power_up_shoot/power_up_shoot.tscn")
+	SPRITES.PADDLE_SHOOT : preload("res://power_up/power_up_shoot/power_up_shoot.tscn"),
+	SPRITES.PROJECTILE : preload("res://projectile/projectile.tscn")
 }
 
 
@@ -80,8 +84,6 @@ func create_power_up(start_position: Vector2) -> void:
 
 
 func create_bricks(max_rows: int, max_columns: int, starting_position: Vector2, spacing_x: int, spacing_y: int):
-	
-	
 	var brick_spawn = Marker2D.new()
 	var animation_track = BRICK_ANIMATION_TRACKS.pick_random()
 	call_add_child(brick_spawn)

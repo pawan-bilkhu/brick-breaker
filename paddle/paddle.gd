@@ -31,7 +31,7 @@ func _physics_process(delta):
 
 
 	if Input.is_action_just_pressed("shoot") and can_shoot:
-		print("I am shooting")
+		GameManager.create_object(global_position, GameManager.SPRITES.PROJECTILE)
 	# print(global_position.x + (sprite_width/2))
 
 
