@@ -1,16 +1,13 @@
-extends StaticBody2D
+extends BaseBrick
 
-var is_dead: bool = false
 
 func _ready() -> void:
-	apply_scale(Vector2(2, 0.5))
+	scale_factor = Vector2(2, 0.5)
+	super._ready()
 
 
 func destroy() -> void:
-	if is_dead:
-		return
-	is_dead = true
 	GameManager.obstacle_destroyed.emit()
-	queue_free()
+	super.destroy()
 
 

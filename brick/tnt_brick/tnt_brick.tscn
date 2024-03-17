@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://byf4cc22fgo8d"]
 
-[ext_resource type="Texture2D" uid="uid://b6niif1m3hipe" path="res://assets/lava/lava_icon.png" id="1_7o608"]
-[ext_resource type="Script" path="res://brick/tnt_brick.gd" id="1_vhqrc"]
+[ext_resource type="Script" path="res://brick/tnt_brick/tnt_brick.gd" id="1_tcrmm"]
+[ext_resource type="Texture2D" uid="uid://b6niif1m3hipe" path="res://assets/lava/lava_icon.png" id="2_jcq7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfbbn"]
 size = Vector2(53, 32)
@@ -14,11 +14,11 @@ offsets = PackedFloat32Array(0, 0.537162, 0.996622)
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 1, 0.435294, 0, 1)
 metadata/_snap_enabled = true
 
-[node name="tnt_brick" type="StaticBody2D" groups=["brick"]]
-script = ExtResource("1_vhqrc")
+[node name="TntBrick" type="StaticBody2D" groups=["brick"]]
+script = ExtResource("1_tcrmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7o608")
+texture = ExtResource("2_jcq7v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vfbbn")

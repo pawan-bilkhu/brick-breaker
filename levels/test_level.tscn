@@ -16,7 +16,6 @@ font_color = Color(0.968627, 0.823529, 0, 1)
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_1optl")
-countdown_time = 3
 
 [node name="Walls" type="Node" parent="."]
 
@@ -53,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
-text = "00"
+text = "0"
 label_settings = SubResource("LabelSettings_cspc2")
 horizontal_alignment = 1
 

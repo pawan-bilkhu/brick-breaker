@@ -15,11 +15,14 @@ func _physics_process(delta: float) -> void:
 
 
 func set_score_settings(score: int) -> void:
+	var font_size: int = 20
 	var polarity = ""
 	label_settings.font_color = Color.RED
 	if score > 0:
+		font_size = 40
 		polarity = "+"
 		label_settings.font_color = Color.GREEN
+	label_settings.font_size = font_size
 	text = polarity + "%d" % score
 
 

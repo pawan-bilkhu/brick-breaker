@@ -7,7 +7,7 @@ const min_scale_x: float = 0.25
 const max_scale_x: float = 10
 
 
-@export var speed: float = 400.0
+@export var speed: float = 500.0
 @export var sprite_width: float = 0.0
 @export var sprite_scale_x: float = 0.0
 @export var can_shoot: bool = false

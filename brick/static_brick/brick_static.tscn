@@ -1,0 +1,166 @@
+[gd_scene load_steps=34 format=3 uid="uid://cx5qtgchmwt1a"]
+
+[ext_resource type="Script" path="res://brick/static_brick/brick_static.gd" id="1_50pv4"]
+[ext_resource type="Texture2D" uid="uid://cfj8kvkruws3o" path="res://assets/normal/1.png" id="2_6qnce"]
+[ext_resource type="Texture2D" uid="uid://ce4tcuioxpn15" path="res://assets/normal/2.png" id="3_ege4d"]
+[ext_resource type="Texture2D" uid="uid://dlfgsfj8p6bsu" path="res://assets/normal/3.png" id="4_scxea"]
+[ext_resource type="Texture2D" uid="uid://b3ftkya8oegs1" path="res://assets/normal/4.png" id="5_ax48y"]
+[ext_resource type="Texture2D" uid="uid://bw8rjeecvov63" path="res://assets/normal/5.png" id="6_wqfj5"]
+[ext_resource type="Texture2D" uid="uid://df1iinfyowb6m" path="res://assets/normal/6.png" id="7_8m1hn"]
+[ext_resource type="Texture2D" uid="uid://bjrpdrislir45" path="res://assets/normal/7.png" id="8_qms1l"]
+[ext_resource type="Texture2D" uid="uid://g6hygtlj6wig" path="res://assets/neon/glow/1.png" id="9_pg41x"]
+[ext_resource type="Texture2D" uid="uid://dedvwb52d83oy" path="res://assets/neon/glow/2.png" id="10_cjn7m"]
+[ext_resource type="Texture2D" uid="uid://c0ss7yghilp7i" path="res://assets/neon/glow/3.png" id="11_wac3n"]
+[ext_resource type="Texture2D" uid="uid://cckv8r8hsd3ri" path="res://assets/neon/glow/4.png" id="12_krgly"]
+[ext_resource type="Texture2D" uid="uid://bg8djxbuw5h4x" path="res://assets/neon/glow/5.png" id="13_y0csn"]
+[ext_resource type="Texture2D" uid="uid://dpmhfmmue2gnd" path="res://assets/neon/glow/6.png" id="14_ti430"]
+[ext_resource type="Texture2D" uid="uid://te0s0plqkoer" path="res://assets/neon/glow/7.png" id="15_3i62u"]
+[ext_resource type="Texture2D" uid="uid://b5pp5wn0gjs66" path="res://assets/neon/1.png" id="16_sssif"]
+[ext_resource type="Texture2D" uid="uid://dy0accnly2my7" path="res://assets/neon/2.png" id="17_vmaq7"]
+[ext_resource type="Texture2D" uid="uid://qds7ehvj3yhl" path="res://assets/neon/3.png" id="18_b6vli"]
+[ext_resource type="Texture2D" uid="uid://t8t6k7kv2c0s" path="res://assets/neon/4.png" id="19_duyn1"]
+[ext_resource type="Texture2D" uid="uid://xirgjypni2cr" path="res://assets/neon/5.png" id="20_aci0i"]
+[ext_resource type="Texture2D" uid="uid://cpycohck57pe6" path="res://assets/neon/6.png" id="21_auyh4"]
+[ext_resource type="Texture2D" uid="uid://b6wqe6jf0riia" path="res://assets/neon/7.png" id="22_uaboo"]
+[ext_resource type="Texture2D" uid="uid://csfifp63xwbxe" path="res://assets/winter/s1.png" id="23_bw2ga"]
+[ext_resource type="Texture2D" uid="uid://y78rn7o1pqy4" path="res://assets/winter/s2.png" id="24_pfiij"]
+[ext_resource type="Texture2D" uid="uid://c332egm1goei5" path="res://assets/winter/s3.png" id="25_0881t"]
+[ext_resource type="Texture2D" uid="uid://uialvunkshyi" path="res://assets/winter/s4.png" id="26_barh2"]
+[ext_resource type="Texture2D" uid="uid://x8dtgtmwl2ly" path="res://assets/winter/s5.png" id="27_ao66s"]
+[ext_resource type="Texture2D" uid="uid://cytdpkd37e632" path="res://assets/winter/s6.png" id="28_d03hd"]
+[ext_resource type="Texture2D" uid="uid://clj751kxcgps6" path="res://assets/winter/s7.png" id="29_iptxj"]
+[ext_resource type="Texture2D" uid="uid://6w0e51hqglap" path="res://assets/winter/s8.png" id="30_gv6ol"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hasol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6qnce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ege4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_scxea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ax48y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wqfj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8m1hn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qms1l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_pg41x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cjn7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wac3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_krgly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y0csn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ti430")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3i62u")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_sssif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vmaq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_b6vli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_duyn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_aci0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_auyh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_uaboo")
+}],
+"loop": true,
+"name": &"neon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_bw2ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_pfiij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_0881t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_barh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ao66s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_d03hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_iptxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_gv6ol")
+}],
+"loop": true,
+"name": &"snow",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8oyq"]
+size = Vector2(52, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvjpn"]
+size = Vector2(54, 32)
+
+[node name="BrickStatic" type="StaticBody2D" node_paths=PackedStringArray("animated_sprite_2d") groups=["brick"]]
+script = ExtResource("1_50pv4")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hasol")
+
+[node name="PhysicsStatic2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u8oyq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lvjpn")
+debug_color = Color(0.996078, 0, 0.168627, 0.419608)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

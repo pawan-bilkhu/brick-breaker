@@ -6,14 +6,19 @@ signal paddle_shrink
 signal multiball
 signal on_zero_ball
 signal paddle_shoot
+
+# Brick Signals
 signal brick_damage
 signal brick_destroyed
 signal obstacle_destroyed
 signal tnt_destroyed
 
 
-# Ball Signal
+# Ball Signals
 signal ball_destroyed
+
+# Game Singals
+signal game_over
 
 
 # Groups
@@ -40,6 +45,7 @@ enum SPRITES {
 	BRICK,
 	OBSTACLE,
 	TNTBRICK,
+	REGENBRICK,
 	EXPLOSION,
 	PADDLE,
 	PADDLE_GROW,
@@ -58,9 +64,10 @@ var BRICK_ANIMATION_TRACKS: Array[StringName] = ["default", "glow", "neon", "sno
 # All Sprite Packed Scenes
 var SPRITE_SCENE: Dictionary = {
 	SPRITES.BALL : preload("res://ball/ball_characterbody.tscn"),
-	SPRITES.BRICK : preload("res://brick/brick_static.tscn"),
+	SPRITES.BRICK : preload("res://brick/static_brick/brick_static.tscn"),
 	SPRITES.OBSTACLE : preload("res://obstacle/obstacle_static.tscn"),
-	SPRITES.TNTBRICK : preload("res://brick/tnt_brick.tscn"),
+	SPRITES.TNTBRICK : preload("res://brick/tnt_brick/tnt_brick.tscn"),
+	SPRITES.REGENBRICK : preload("res://brick/regen_brick/regen_brick.tscn"),
 	SPRITES.EXPLOSION : preload("res://explosive/explosion.tscn"),
 	SPRITES.PADDLE : preload("res://paddle/paddle_static.tscn"),
 	SPRITES.PADDLE_GROW : preload("res://power_up/power_up_grow/power_up_grow.tscn"),
@@ -113,7 +120,8 @@ func create_ball(start_position: Vector2) -> void:
 func create_power_up(start_position: Vector2) -> void:
 	create_sprite(start_position, POWER_UPS.pick_random())
 
-func generate_bricks(max_rows: int, max_columns: int, starting_position: Vector2, spacing_x: int, spacing_y: int) -> void:
+func generate_bricks(max_rows: int, max_columns: int, starting_position: Vector2, spacing_x: int, spacing_y: int) -> int:
+	var brick_count: int = 0
 	var brick_spawn = Marker2D.new()
 	var animation_track = BRICK_ANIMATION_TRACKS.pick_random()
 	call_add_child(brick_spawn)
@@ -121,17 +129,22 @@ func generate_bricks(max_rows: int, max_columns: int, starting_position: Vector2
 	
 	for row in max_rows:
 		for column in max_columns:
-			if randf() <= 0.3:
+			if row == 0 or column == 0 or column == max_columns-1:
 				create_obstacle(brick_spawn.position)
-			elif randf() <= 0.4:
-				create_brick(row, brick_spawn.position, animation_track)
+			elif row == 1 or row == 2:
+				create_regen(row, brick_spawn.position)
+				brick_count += 1
 			else:
-				create_tnt(brick_spawn.position)
+				if randf() <= 0.7:
+					create_brick(row, brick_spawn.position, animation_track)
+					brick_count += 1
+				else:
+					create_tnt(brick_spawn.position)
 			brick_spawn.position.x += spacing_x
 		brick_spawn.position.x = starting_position.x
 		brick_spawn.position.y += spacing_y
 	brick_spawn.queue_free()
-
+	return brick_count
 
 func create_brick(_health: int, _position: Vector2, _animation_track: StringName) -> void:
 	var brick_sprite = SPRITE_SCENE[SPRITES.BRICK].instantiate()
@@ -145,7 +158,7 @@ func create_brick(_health: int, _position: Vector2, _animation_track: StringName
 		brick_sprite.animated_sprite_2d.get_sprite_frames().get_frame_count(_animation_track)-1
 		)
 	if _health > brick_sprite.frame_count:
-		brick_sprite.health = 0
+		brick_sprite.health = brick_sprite.frame_count
 
 
 func create_obstacle(start_position: Vector2) -> void:
@@ -155,6 +168,17 @@ func create_obstacle(start_position: Vector2) -> void:
 func create_tnt(start_position: Vector2) -> void:
 	create_sprite(start_position, SPRITES.TNTBRICK)
 
+
+func create_regen(_health: int, _position: Vector2) -> void:
+	var brick_sprite = SPRITE_SCENE[SPRITES.REGENBRICK].instantiate()
+	call_add_child(brick_sprite)
+	brick_sprite.position = _position
+	brick_sprite.health = _health
+	brick_sprite.frame_count = (
+		brick_sprite.animated_sprite_2d.get_sprite_frames().get_frame_count("default")-1
+		)
+	if _health > brick_sprite.frame_count:
+		brick_sprite.health = brick_sprite.frame_count
 
 func create_explosion(start_position: Vector2) -> void:
 	create_sprite(start_position, SPRITES.EXPLOSION)
