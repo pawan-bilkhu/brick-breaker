@@ -6,11 +6,13 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_cspc2"]
 font_size = 50
-font_color = Color(1, 0, 1, 1)
+font_color = Color(1, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ymgau"]
+[sub_resource type="LabelSettings" id="LabelSettings_441eh"]
 font_size = 50
-font_color = Color(1, 1, 0.321569, 1)
+font_color = Color(0.968627, 0.823529, 0, 1)
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_1optl")
@@ -61,7 +63,8 @@ anchor_right = 1.0
 offset_bottom = 69.0
 grow_horizontal = 2
 text = "00"
-label_settings = SubResource("LabelSettings_ymgau")
+label_settings = SubResource("LabelSettings_441eh")
+horizontal_alignment = 1
 
 [node name="GameStartTimer" type="Timer" parent="."]
 one_shot = true

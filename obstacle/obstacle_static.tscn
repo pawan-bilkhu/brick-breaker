@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://db2nc41q2gne7"]
+
+[ext_resource type="Script" path="res://obstacle/obstacle_static.gd" id="1_lfbyq"]
+[ext_resource type="Texture2D" uid="uid://pcm0oatrbesi" path="res://assets/divider/o1.png" id="1_p8060"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1oncx"]
+size = Vector2(54, 54)
+
+[node name="obstacle_static" type="StaticBody2D" groups=["brick"]]
+script = ExtResource("1_lfbyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p8060")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1oncx")

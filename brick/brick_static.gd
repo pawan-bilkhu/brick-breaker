@@ -21,10 +21,12 @@ func _process(delta):
 
 	
 func on_health_zero():
-	if is_dead or health >=0:
+	if not is_dead and health >=0:
+		GameManager.brick_damage.emit()
 		animated_sprite_2d.set_frame(health)
 		return
 	is_dead = true
+	GameManager.brick_destroyed.emit()
 	set_physics_process(false)
 	GameManager.create_power_up(global_position)
 	queue_free()

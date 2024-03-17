@@ -26,6 +26,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group(GameManager.GROUP_BRICK):
-		body.health -= 2
-		body.on_health_zero()
+		if body.has_method("on_health_zero"):
+			body.health -= 2
+			body.on_health_zero()
 		destroy()

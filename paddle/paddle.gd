@@ -2,17 +2,21 @@ extends StaticBody2D
 
 const screen_width_max: float = 1280
 const screen_width_min: float = 0
+const min_scale_x: float = 0.25
+const max_scale_x: float = 10
 
 @export var speed: float = 400.0
 @export var sprite_width: float = 0.0
 @export var sprite_scale_x: float = 0.0
 @export var can_shoot: bool = false
 @export var time: float = 3.0
+@export var scale_factor: float = 0.25
+
 
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var shoot_power_timer: Timer = $ShootPowerTimer
-@onready var projectile_spawn = $ProjectileSpawn
+@onready var projectile_spawn: Marker2D = $ProjectileSpawn
 
 
 func _ready():
@@ -32,7 +36,7 @@ func _physics_process(delta):
 
 
 	if Input.is_action_just_pressed("shoot") and can_shoot:
-		GameManager.create_object(projectile_spawn.global_position, GameManager.SPRITES.PROJECTILE)
+		GameManager.create_sprite(projectile_spawn.global_position, GameManager.SPRITES.PROJECTILE)
 	# print(global_position.x + (sprite_width/2))
 
 
@@ -45,13 +49,15 @@ func set_scale_x(value: float) -> void:
 
 
 func on_paddle_grow() -> void:
-	if scale.x < 10:
-		set_scale_x(scale.x + 0.25)
+	if scale.x < max_scale_x:
+		var tween = get_tree().create_tween().bind_node(self).set_ease(Tween.EASE_IN)
+		tween.tween_method(set_scale_x, scale.x, scale.x + scale_factor, 1)
 
 
 func on_paddle_shrink() -> void:
-	if scale.x > 0.25:
-		set_scale_x(scale.x - 0.25)
+	if scale.x > min_scale_x:
+		var tween = get_tree().create_tween().bind_node(self).set_ease(Tween.EASE_IN)
+		tween.tween_method(set_scale_x, scale.x, scale.x - scale_factor, 1)
 
 
 func shooting_enabled() -> void:
