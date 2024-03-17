@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://byf4cc22fgo8d"]
+[gd_scene load_steps=6 format=3 uid="uid://byf4cc22fgo8d"]
 
 [ext_resource type="Texture2D" uid="uid://b6niif1m3hipe" path="res://assets/lava/lava_icon.png" id="1_7o608"]
+[ext_resource type="Script" path="res://brick/tnt_brick.gd" id="1_vhqrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfbbn"]
 size = Vector2(53, 32)
@@ -13,7 +14,8 @@ offsets = PackedFloat32Array(0, 0.537162, 0.996622)
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 1, 0.435294, 0, 1)
 metadata/_snap_enabled = true
 
-[node name="explosive_static" type="StaticBody2D"]
+[node name="tnt_brick" type="StaticBody2D" groups=["brick"]]
+script = ExtResource("1_vhqrc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7o608")
@@ -41,3 +43,5 @@ linear_accel_min = 2.0
 linear_accel_max = 4.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_c5mv4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

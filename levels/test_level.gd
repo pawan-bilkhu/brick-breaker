@@ -22,8 +22,10 @@ func _ready():
 	GameManager.create_sprite(paddle_spawn.position, GameManager.SPRITES.PADDLE)
 	
 	# Connect Signals
-	GameManager.brick_damage.connect(change_score.bind(5))
-	GameManager.brick_destroyed.connect(change_score.bind(15))
+	GameManager.brick_damage.connect(change_score.bind(15))
+	GameManager.tnt_destroyed.connect(change_score.bind(5))
+	GameManager.obstacle_destroyed.connect(change_score.bind(10))
+	GameManager.brick_destroyed.connect(change_score.bind(30))
 	GameManager.ball_destroyed.connect(change_score.bind(-1))
 	GameManager.ball_destroyed.connect(on_ball_destroyed)
 	GameManager.multiball.connect(create_multiple_balls)
@@ -47,7 +49,7 @@ func get_score()->int:
 
 func change_score(value: int) -> void:
 	set_score(get_score() + value)
-	GameManager.create_stacking_label(Vector2(score_label.global_position.x + 50, score_label.global_position.y), value)
+	GameManager.create_stacking_label(Vector2(score_label.global_position.x, score_label.global_position.y), 70, 5, value)
 	display_score(get_score())
 
 

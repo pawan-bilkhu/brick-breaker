@@ -8,6 +8,8 @@ signal on_zero_ball
 signal paddle_shoot
 signal brick_damage
 signal brick_destroyed
+signal obstacle_destroyed
+signal tnt_destroyed
 
 
 # Ball Signal
@@ -26,12 +28,10 @@ enum GUI{
 }
 
 
-
+# All GUI Packed Scenes
 var GUI_SCENE: Dictionary = {
 	GUI.SCORE_STACKING : preload("res://GUI/score_stacking/score_stacking_label.tscn"),
 }
-
-
 
 
 # Collection of all Sprite Objects
@@ -39,6 +39,8 @@ enum SPRITES {
 	BALL,
 	BRICK,
 	OBSTACLE,
+	TNTBRICK,
+	EXPLOSION,
 	PADDLE,
 	PADDLE_GROW,
 	PADDLE_SHRINK,
@@ -47,15 +49,19 @@ enum SPRITES {
 	PROJECTILE,
 }
 
+
 # A collection of Power Up Sprite Objects
 var POWER_UPS: Array[SPRITES] = [SPRITES.PADDLE_GROW, SPRITES.PADDLE_SHRINK, SPRITES.MULTIBALL, SPRITES.PADDLE_SHOOT]
 var BRICK_ANIMATION_TRACKS: Array[StringName] = ["default", "glow", "neon", "snow"]
+
 
 # All Sprite Packed Scenes
 var SPRITE_SCENE: Dictionary = {
 	SPRITES.BALL : preload("res://ball/ball_characterbody.tscn"),
 	SPRITES.BRICK : preload("res://brick/brick_static.tscn"),
 	SPRITES.OBSTACLE : preload("res://obstacle/obstacle_static.tscn"),
+	SPRITES.TNTBRICK : preload("res://brick/tnt_brick.tscn"),
+	SPRITES.EXPLOSION : preload("res://explosive/explosion.tscn"),
 	SPRITES.PADDLE : preload("res://paddle/paddle_static.tscn"),
 	SPRITES.PADDLE_GROW : preload("res://power_up/power_up_grow/power_up_grow.tscn"),
 	SPRITES.PADDLE_SHRINK : preload("res://power_up/power_up_shrink/power_up_shrink.tscn"),
@@ -91,9 +97,10 @@ func create_sprite(start_position: Vector2, key: SPRITES) -> void:
 	new_sprite.global_position = start_position
 	call_add_child(new_sprite)
 
-func create_stacking_label(start_position: Vector2, value: int) -> void:
+
+func create_stacking_label(start_position: Vector2, offset_x: float, offest_y: float, value: int) -> void:
 	var new_stacking_label = GUI_SCENE[GUI.SCORE_STACKING].instantiate()
-	new_stacking_label.global_position = start_position
+	new_stacking_label.global_position = Vector2(start_position.x + offset_x, start_position.y + offest_y)
 	new_stacking_label.set_score_settings(value)
 	call_add_child(new_stacking_label)
 
@@ -116,8 +123,10 @@ func generate_bricks(max_rows: int, max_columns: int, starting_position: Vector2
 		for column in max_columns:
 			if randf() <= 0.3:
 				create_obstacle(brick_spawn.position)
-			else:
+			elif randf() <= 0.4:
 				create_brick(row, brick_spawn.position, animation_track)
+			else:
+				create_tnt(brick_spawn.position)
 			brick_spawn.position.x += spacing_x
 		brick_spawn.position.x = starting_position.x
 		brick_spawn.position.y += spacing_y
@@ -141,3 +150,11 @@ func create_brick(_health: int, _position: Vector2, _animation_track: StringName
 
 func create_obstacle(start_position: Vector2) -> void:
 	create_sprite(start_position, SPRITES.OBSTACLE)
+
+
+func create_tnt(start_position: Vector2) -> void:
+	create_sprite(start_position, SPRITES.TNTBRICK)
+
+
+func create_explosion(start_position: Vector2) -> void:
+	create_sprite(start_position, SPRITES.EXPLOSION)

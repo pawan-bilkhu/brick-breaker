@@ -1,9 +1,11 @@
 extends StaticBody2D
 
+
 const screen_width_max: float = 1280
 const screen_width_min: float = 0
 const min_scale_x: float = 0.25
 const max_scale_x: float = 10
+
 
 @export var speed: float = 400.0
 @export var sprite_width: float = 0.0
@@ -11,7 +13,6 @@ const max_scale_x: float = 10
 @export var can_shoot: bool = false
 @export var time: float = 3.0
 @export var scale_factor: float = 0.25
-
 
 
 @onready var sprite_2d: Sprite2D = $Sprite2D

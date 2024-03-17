@@ -11,8 +11,7 @@ func _ready():
 	# frame_count = animated_sprite_2d.get_sprite_frames().get_frame_count("default")-1
 	# print(frame_count)
 	animated_sprite_2d.set_frame(health)
-	scale.x = 2
-	scale.y = 0.75
+	apply_scale(Vector2(2, 0.75))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

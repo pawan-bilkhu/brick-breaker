@@ -20,7 +20,7 @@ func destroy() -> void:
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	print("projectile has been destroyed")
+	# print("projectile has been destroyed")
 	destroy()
 
 
@@ -29,4 +29,6 @@ func _on_area_2d_body_entered(body):
 		if body.has_method("on_health_zero"):
 			body.health -= 2
 			body.on_health_zero()
+		else:
+			body.destroy()
 		destroy()
