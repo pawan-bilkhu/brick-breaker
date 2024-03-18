@@ -42,10 +42,11 @@ var GUI_SCENE: Dictionary = {
 # Collection of all Sprite Objects
 enum SPRITES {
 	BALL,
-	BRICK,
+	STATICBRICK,
 	OBSTACLE,
 	TNTBRICK,
 	REGENBRICK,
+	INVISIBLEBRICK,
 	EXPLOSION,
 	PADDLE,
 	PADDLE_GROW,
@@ -58,16 +59,18 @@ enum SPRITES {
 
 # A collection of Power Up Sprite Objects
 var POWER_UPS: Array[SPRITES] = [SPRITES.PADDLE_GROW, SPRITES.PADDLE_SHRINK, SPRITES.MULTIBALL, SPRITES.PADDLE_SHOOT]
-var BRICK_ANIMATION_TRACKS: Array[StringName] = ["default", "glow", "neon", "snow"]
+var BRICKS: Array[SPRITES] = [SPRITES.STATICBRICK, SPRITES.TNTBRICK, SPRITES.REGENBRICK, SPRITES.INVISIBLEBRICK] 
+var BRICK_ANIMATION_TRACKS: Array[StringName] = ["default", "glow", "neon", "winter", "snow"]
 
 
 # All Sprite Packed Scenes
 var SPRITE_SCENE: Dictionary = {
 	SPRITES.BALL : preload("res://ball/ball_characterbody.tscn"),
-	SPRITES.BRICK : preload("res://brick/static_brick/brick_static.tscn"),
+	SPRITES.STATICBRICK : preload("res://brick/static_brick/static_brick.tscn"),
 	SPRITES.OBSTACLE : preload("res://obstacle/obstacle_static.tscn"),
 	SPRITES.TNTBRICK : preload("res://brick/tnt_brick/tnt_brick.tscn"),
 	SPRITES.REGENBRICK : preload("res://brick/regen_brick/regen_brick.tscn"),
+	SPRITES.INVISIBLEBRICK : preload("res://brick/invisible_brick/invisible_brick.tscn"),
 	SPRITES.EXPLOSION : preload("res://explosive/explosion.tscn"),
 	SPRITES.PADDLE : preload("res://paddle/paddle_static.tscn"),
 	SPRITES.PADDLE_GROW : preload("res://power_up/power_up_grow/power_up_grow.tscn"),
@@ -129,25 +132,19 @@ func generate_bricks(max_rows: int, max_columns: int, starting_position: Vector2
 	
 	for row in max_rows:
 		for column in max_columns:
-			if row == 0 or column == 0 or column == max_columns-1:
+			if row == 0:
 				create_obstacle(brick_spawn.position)
-			elif row == 1 or row == 2:
-				create_regen(row, brick_spawn.position)
-				brick_count += 1
 			else:
-				if randf() <= 0.7:
-					create_brick(row, brick_spawn.position, animation_track)
-					brick_count += 1
-				else:
-					create_tnt(brick_spawn.position)
+				create_tnt(row, brick_spawn.position)
+				brick_count += 1
 			brick_spawn.position.x += spacing_x
 		brick_spawn.position.x = starting_position.x
 		brick_spawn.position.y += spacing_y
 	brick_spawn.queue_free()
 	return brick_count
 
-func create_brick(_health: int, _position: Vector2, _animation_track: StringName) -> void:
-	var brick_sprite = SPRITE_SCENE[SPRITES.BRICK].instantiate()
+func create_brick(_health: int, _position: Vector2, key: SPRITES, _animation_track: StringName) -> void:
+	var brick_sprite = SPRITE_SCENE[key].instantiate()
 	call_add_child(brick_sprite)
 	brick_sprite.position = _position
 	brick_sprite.health = _health
@@ -165,20 +162,17 @@ func create_obstacle(start_position: Vector2) -> void:
 	create_sprite(start_position, SPRITES.OBSTACLE)
 
 
-func create_tnt(start_position: Vector2) -> void:
-	create_sprite(start_position, SPRITES.TNTBRICK)
+func create_tnt(_health: int, start_position: Vector2) -> void:
+	create_brick(_health, start_position, BRICKS[1], BRICK_ANIMATION_TRACKS[0])
 
 
-func create_regen(_health: int, _position: Vector2) -> void:
-	var brick_sprite = SPRITE_SCENE[SPRITES.REGENBRICK].instantiate()
-	call_add_child(brick_sprite)
-	brick_sprite.position = _position
-	brick_sprite.health = _health
-	brick_sprite.frame_count = (
-		brick_sprite.animated_sprite_2d.get_sprite_frames().get_frame_count("default")-1
-		)
-	if _health > brick_sprite.frame_count:
-		brick_sprite.health = brick_sprite.frame_count
+func create_regen(_health: int, start_position: Vector2) -> void:
+	create_brick(_health, start_position, BRICKS[2], BRICK_ANIMATION_TRACKS[0])
+
+
+func create_invisible(_health: int, start_position: Vector2) -> void:
+	create_brick(_health, start_position, BRICKS[3], BRICK_ANIMATION_TRACKS[0])
+
 
 func create_explosion(start_position: Vector2) -> void:
 	create_sprite(start_position, SPRITES.EXPLOSION)

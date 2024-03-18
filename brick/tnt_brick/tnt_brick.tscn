@@ -1,37 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://byf4cc22fgo8d"]
+[gd_scene load_steps=8 format=3 uid="uid://dwie1s6m20bj6"]
 
+[ext_resource type="PackedScene" uid="uid://bmro5dq4t2b1g" path="res://brick/base_brick/base_brick.tscn" id="1_kh3g0"]
 [ext_resource type="Script" path="res://brick/tnt_brick/tnt_brick.gd" id="1_tcrmm"]
 [ext_resource type="Texture2D" uid="uid://b6niif1m3hipe" path="res://assets/lava/lava_icon.png" id="2_jcq7v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfbbn"]
-size = Vector2(53, 32)
+[sub_resource type="SpriteFrames" id="SpriteFrames_nxdpj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jcq7v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k7qt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16e0h"]
+size = Vector2(54, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dij0j"]
 size = Vector2(56, 34)
 
-[sub_resource type="Gradient" id="Gradient_c5mv4"]
-offsets = PackedFloat32Array(0, 0.537162, 0.996622)
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 1, 0.435294, 0, 1)
-metadata/_snap_enabled = true
+[sub_resource type="Gradient" id="Gradient_yxmir"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 1, 0.556863, 0, 1)
 
-[node name="TntBrick" type="StaticBody2D" groups=["brick"]]
+[node name="TntBrick" instance=ExtResource("1_kh3g0")]
 script = ExtResource("1_tcrmm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_jcq7v")
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_nxdpj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_vfbbn")
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_16e0h")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HitBoxShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_dij0j")
+debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_3k7qt")
-debug_color = Color(0.972549, 0.172549, 0, 0.419608)
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="3"]
+emitting = false
 amount = 10
-lifetime = 2.0
 emission_shape = 1
 emission_sphere_radius = 2.0
 direction = Vector2(1, 1)
@@ -41,7 +50,4 @@ initial_velocity_min = 15.0
 initial_velocity_max = 50.0
 linear_accel_min = 2.0
 linear_accel_max = 4.0
-scale_amount_max = 5.0
-color_ramp = SubResource("Gradient_c5mv4")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+color_ramp = SubResource("Gradient_yxmir")

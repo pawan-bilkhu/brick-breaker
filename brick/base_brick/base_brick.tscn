@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" path="res://brick/base_brick/base_brick.gd" id="1_n4rqy"]
 
-[node name="BaseBrick" type="StaticBody2D"]
+[node name="BaseBrick" type="StaticBody2D" node_paths=PackedStringArray("animated_sprite_2d") groups=["brick"]]
 script = ExtResource("1_n4rqy")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

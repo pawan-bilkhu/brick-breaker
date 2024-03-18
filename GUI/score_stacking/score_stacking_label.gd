@@ -26,7 +26,7 @@ func set_score_settings(score: int) -> void:
 	text = polarity + "%d" % score
 
 
-func start_countdown(time: int) -> void:
+func start_countdown(time: float) -> void:
 	lifespan_timer.start(time)
 	var tween = get_tree().create_tween().bind_node(self).set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "self_modulate", Color.TRANSPARENT, lifespan)

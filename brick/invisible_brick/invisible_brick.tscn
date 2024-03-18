@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://bls55cnevp0ub"]
+
+[ext_resource type="Script" path="res://brick/invisible_brick/invisible_brick.gd" id="1_46mna"]
+[ext_resource type="PackedScene" uid="uid://bmro5dq4t2b1g" path="res://brick/base_brick/base_brick.tscn" id="1_lchhr"]
+[ext_resource type="Texture2D" uid="uid://80kfgxc2xoa2" path="res://assets/glow/1.png" id="3_af480"]
+[ext_resource type="Texture2D" uid="uid://3vduy252nlpx" path="res://assets/glow/2.png" id="4_dvwo1"]
+[ext_resource type="Texture2D" uid="uid://bptbyq7mfv5k2" path="res://assets/glow/3.png" id="5_pu6ff"]
+[ext_resource type="Texture2D" uid="uid://ba4gg2i4aybau" path="res://assets/glow/4.png" id="6_wjr7j"]
+[ext_resource type="Texture2D" uid="uid://uurjmopfnr2g" path="res://assets/glow/5.png" id="7_w41r3"]
+[ext_resource type="Texture2D" uid="uid://doral2nq12xvb" path="res://assets/glow/6.png" id="8_scbya"]
+[ext_resource type="Texture2D" uid="uid://cei1fflrwrjvc" path="res://assets/glow/7.png" id="9_q3tte"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_386aa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_af480")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dvwo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pu6ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wjr7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w41r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_scbya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q3tte")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpnoa"]
+size = Vector2(53, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfqtf"]
+size = Vector2(54, 34)
+
+[node name="InvisibleBrick" instance=ExtResource("1_lchhr")]
+script = ExtResource("1_46mna")
+countdown_time = 0.8
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_386aa")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_jpnoa")
+
+[node name="VisibilityTimer" type="Timer" parent="." index="2"]
+
+[node name="HitBoxShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_mfqtf")
+debug_color = Color(0.988235, 0, 0.313726, 0.419608)
+
+[connection signal="timeout" from="VisibilityTimer" to="." method="_on_visibility_timer_timeout"]

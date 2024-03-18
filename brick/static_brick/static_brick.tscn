@@ -1,0 +1,189 @@
+[gd_scene load_steps=35 format=3 uid="uid://ci3up0601lq8c"]
+
+[ext_resource type="PackedScene" uid="uid://bmro5dq4t2b1g" path="res://brick/base_brick/base_brick.tscn" id="1_d2bqy"]
+[ext_resource type="Script" path="res://brick/static_brick/static_brick.gd" id="2_eb1vf"]
+[ext_resource type="Texture2D" uid="uid://80kfgxc2xoa2" path="res://assets/glow/1.png" id="3_nxkk2"]
+[ext_resource type="Texture2D" uid="uid://3vduy252nlpx" path="res://assets/glow/2.png" id="4_dkrev"]
+[ext_resource type="Texture2D" uid="uid://bptbyq7mfv5k2" path="res://assets/glow/3.png" id="5_3utfs"]
+[ext_resource type="Texture2D" uid="uid://ba4gg2i4aybau" path="res://assets/glow/4.png" id="6_uewjy"]
+[ext_resource type="Texture2D" uid="uid://uurjmopfnr2g" path="res://assets/glow/5.png" id="7_yyr2h"]
+[ext_resource type="Texture2D" uid="uid://doral2nq12xvb" path="res://assets/glow/6.png" id="8_kbt3h"]
+[ext_resource type="Texture2D" uid="uid://cei1fflrwrjvc" path="res://assets/glow/7.png" id="9_qim25"]
+[ext_resource type="Texture2D" uid="uid://g6hygtlj6wig" path="res://assets/neon/glow/1.png" id="10_5grrt"]
+[ext_resource type="Texture2D" uid="uid://dedvwb52d83oy" path="res://assets/neon/glow/2.png" id="11_cttlt"]
+[ext_resource type="Texture2D" uid="uid://c0ss7yghilp7i" path="res://assets/neon/glow/3.png" id="12_4j06a"]
+[ext_resource type="Texture2D" uid="uid://cckv8r8hsd3ri" path="res://assets/neon/glow/4.png" id="13_h6v72"]
+[ext_resource type="Texture2D" uid="uid://bg8djxbuw5h4x" path="res://assets/neon/glow/5.png" id="14_2cfs4"]
+[ext_resource type="Texture2D" uid="uid://dpmhfmmue2gnd" path="res://assets/neon/glow/6.png" id="15_46vk8"]
+[ext_resource type="Texture2D" uid="uid://te0s0plqkoer" path="res://assets/neon/glow/7.png" id="16_c7427"]
+[ext_resource type="Texture2D" uid="uid://cseb1st6fpnab" path="res://assets/winter/snow/s1.png" id="17_tqs4m"]
+[ext_resource type="Texture2D" uid="uid://cs7ys26b0j43u" path="res://assets/winter/snow/s2.png" id="18_cpio6"]
+[ext_resource type="Texture2D" uid="uid://cxd2c1tybuoum" path="res://assets/winter/snow/s3.png" id="19_e4c6i"]
+[ext_resource type="Texture2D" uid="uid://colsreep0ln2j" path="res://assets/winter/snow/s4.png" id="20_v5mas"]
+[ext_resource type="Texture2D" uid="uid://vhgsr1q0x58h" path="res://assets/winter/snow/s5.png" id="21_41b6i"]
+[ext_resource type="Texture2D" uid="uid://d3rrqgqljis16" path="res://assets/winter/snow/s6.png" id="22_adqtd"]
+[ext_resource type="Texture2D" uid="uid://ijl0a3xwmwx1" path="res://assets/winter/snow/s7.png" id="23_8pg07"]
+[ext_resource type="Texture2D" uid="uid://bd2fp1kr8xfi4" path="res://assets/winter/snow/s8.png" id="24_r2eal"]
+[ext_resource type="Texture2D" uid="uid://csfifp63xwbxe" path="res://assets/winter/s1.png" id="25_sddg7"]
+[ext_resource type="Texture2D" uid="uid://y78rn7o1pqy4" path="res://assets/winter/s2.png" id="26_5hmch"]
+[ext_resource type="Texture2D" uid="uid://c332egm1goei5" path="res://assets/winter/s3.png" id="27_2hvfy"]
+[ext_resource type="Texture2D" uid="uid://uialvunkshyi" path="res://assets/winter/s4.png" id="28_f4wfd"]
+[ext_resource type="Texture2D" uid="uid://x8dtgtmwl2ly" path="res://assets/winter/s5.png" id="29_q3m5h"]
+[ext_resource type="Texture2D" uid="uid://cytdpkd37e632" path="res://assets/winter/s6.png" id="30_bahig"]
+[ext_resource type="Texture2D" uid="uid://clj751kxcgps6" path="res://assets/winter/s7.png" id="31_oxned"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwp3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nxkk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dkrev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3utfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uewjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yyr2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kbt3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qim25")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nxkk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dkrev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3utfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uewjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yyr2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kbt3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qim25")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_5grrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cttlt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4j06a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_h6v72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2cfs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_46vk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_c7427")
+}],
+"loop": true,
+"name": &"neon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_tqs4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cpio6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_e4c6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_v5mas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_41b6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_adqtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8pg07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_r2eal")
+}],
+"loop": true,
+"name": &"snow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_sddg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_5hmch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_2hvfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_f4wfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_q3m5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_bahig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_oxned")
+}],
+"loop": true,
+"name": &"winter",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e54y"]
+size = Vector2(52.75, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03r7d"]
+size = Vector2(55.5, 34)
+
+[node name="StaticBrick" instance=ExtResource("1_d2bqy")]
+script = ExtResource("2_eb1vf")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_nwp3h")
+animation = &"snow"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_5e54y")
+
+[node name="HitBoxShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_03r7d")
+debug_color = Color(0.992157, 0, 0.239216, 0.419608)

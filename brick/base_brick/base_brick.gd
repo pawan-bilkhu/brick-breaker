@@ -1,7 +1,10 @@
 extends StaticBody2D
 class_name BaseBrick
 
-@export var scale_factor: Vector2 = Vector2.ZERO
+@export var scale_factor: Vector2 = Vector2.ONE
+@export var animated_sprite_2d: AnimatedSprite2D
+@export var frame_count: int = 0
+@export var health: int = 0
 var is_dead: bool = false
 
 
@@ -14,6 +17,7 @@ func _ready():
 func _process(delta):
 	pass
 
+
 func destroy() -> void:
 	if is_dead:
 		return
@@ -21,6 +25,14 @@ func destroy() -> void:
 	queue_free()
 
 
+func on_brick_damage() -> void:
+	if health < 0:
+		GameManager.brick_destroyed.emit()
+		GameManager.create_power_up(global_position)
+		destroy()
+		return
+	GameManager.brick_damage.emit()
 
-func _on_area_2d_body_entered(body):
+
+func _on_area_2d_body_entered(body: Node2D):
 	pass # Replace with function body.
