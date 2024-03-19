@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcy0pybcepmfo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_441eh"]
+font_size = 50
+font_color = Color(0.968627, 0.823529, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cspc2"]
+font_size = 50
+font_color = Color(1, 1, 0, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "0
+"
+label_settings = SubResource("LabelSettings_441eh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountdownLabel" type="Label" parent="MarginContainer"]
+z_index = 10
+layout_mode = 2
+text = "0
+"
+label_settings = SubResource("LabelSettings_cspc2")
+horizontal_alignment = 1

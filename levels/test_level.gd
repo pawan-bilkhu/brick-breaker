@@ -3,8 +3,8 @@ extends Node2D
 @onready var ball_spawn: Marker2D = $Spawn/BallSpawn
 @onready var paddle_spawn: Marker2D = $Spawn/PaddleSpawn
 @onready var game_start_timer: Timer = $GameStartTimer
-@onready var countdown_label: Label = $Labels/CountdownLabel
-@onready var score_label: Label = $Labels/ScoreLabel
+@onready var countdown_label: Label = $HUD/MarginContainer/CountdownLabel
+@onready var score_label: Label = $HUD/MarginContainer/ScoreLabel
 
 
 @export var countdown_time: float = 0
