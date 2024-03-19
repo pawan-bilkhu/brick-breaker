@@ -123,25 +123,6 @@ func create_ball(start_position: Vector2) -> void:
 func create_power_up(start_position: Vector2) -> void:
 	create_sprite(start_position, POWER_UPS.pick_random())
 
-func generate_bricks(max_rows: int, max_columns: int, starting_position: Vector2, spacing_x: int, spacing_y: int) -> int:
-	var brick_count: int = 0
-	var brick_spawn = Marker2D.new()
-	var animation_track = BRICK_ANIMATION_TRACKS.pick_random()
-	call_add_child(brick_spawn)
-	brick_spawn.position = starting_position
-	
-	for row in max_rows:
-		for column in max_columns:
-			if row == 0:
-				create_obstacle(brick_spawn.position)
-			else:
-				create_tnt(row, brick_spawn.position)
-				brick_count += 1
-			brick_spawn.position.x += spacing_x
-		brick_spawn.position.x = starting_position.x
-		brick_spawn.position.y += spacing_y
-	brick_spawn.queue_free()
-	return brick_count
 
 func create_brick(_health: int, _position: Vector2, key: SPRITES, _animation_track: StringName) -> void:
 	var brick_sprite = SPRITE_SCENE[key].instantiate()
@@ -156,6 +137,9 @@ func create_brick(_health: int, _position: Vector2, key: SPRITES, _animation_tra
 		)
 	if _health > brick_sprite.frame_count:
 		brick_sprite.health = brick_sprite.frame_count
+
+func create_static(_health: int, start_position: Vector2, _animation_track: StringName) -> void:
+	create_brick(_health, start_position, BRICKS[0], _animation_track)
 
 
 func create_obstacle(start_position: Vector2) -> void:

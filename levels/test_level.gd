@@ -18,7 +18,7 @@ func _ready():
 	GameManager.set_total_ball_count(0)
 	
 	# Create Sprites and setting up game
-	total_brick_count = GameManager.generate_bricks(10, 10, Vector2(150,100), 110, 30)
+	total_brick_count = generate_bricks(10, 10, Vector2(150,100), 110, 30)
 	GameManager.create_sprite(paddle_spawn.position, GameManager.SPRITES.PADDLE)
 	
 	# Connect Signals
@@ -39,7 +39,7 @@ func _process(_delta):
 	countdown_label.text = "%1.00f " % game_start_timer.time_left
 
 
-func set_score(value: int )->void:
+func set_score(value: int ) -> void:
 	score = value
 
 
@@ -87,7 +87,7 @@ func on_ball_destroyed() -> void:
 	start_countdown()
 
 
-func _on_game_start_timer_timeout():
+func _on_game_start_timer_timeout() -> void:
 	create_ball()
 	countdown_label.hide()
 
@@ -95,3 +95,20 @@ func _on_game_start_timer_timeout():
 func start_countdown() -> void:
 	game_start_timer.start(countdown_time)
 	countdown_label.show()
+
+func generate_bricks(max_rows: int, max_columns: int, starting_position: Vector2, spacing_x: int, spacing_y: int) -> int:
+	var brick_count: int = 0
+	var brick_spawn = Marker2D.new()
+	var animation_track = GameManager.BRICK_ANIMATION_TRACKS.pick_random()
+	GameManager.call_add_child(brick_spawn)
+	brick_spawn.position = starting_position
+	
+	for row in max_rows:
+		for column in max_columns:
+			GameManager.create_static(row, brick_spawn.position, animation_track)
+			brick_count += 1
+			brick_spawn.position.x += spacing_x
+		brick_spawn.position.x = starting_position.x
+		brick_spawn.position.y += spacing_y
+	brick_spawn.queue_free()
+	return brick_count

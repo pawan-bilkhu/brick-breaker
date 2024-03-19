@@ -5,11 +5,13 @@ extends CharacterBody2D
 @export var scale_y: float = 0
 @export var MAX_SPEED: float = 900
 @export var acceleration: float = 1.02
+@export var audio_stream_player_2d: AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	velocity.y = speed * float((-1)**randi()%2)
 	velocity.x = speed * float((-1)**randi()%2)
 	scale = Vector2(scale_x, scale_y)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,6 +21,7 @@ func _physics_process(delta):
 	if not collision:
 		return
 	velocity = velocity.bounce(collision.get_normal())
+	SoundManager.play_clip(audio_stream_player_2d, SoundManager.SOUND.PLOP)
 	if velocity.length() >= MAX_SPEED:
 		return
 	velocity = velocity * acceleration

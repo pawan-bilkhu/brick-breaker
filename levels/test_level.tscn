@@ -6,13 +6,16 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_cspc2"]
 font_size = 50
-font_color = Color(1, 0, 0, 1)
+font_color = Color(1, 1, 0, 1)
+shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_441eh"]
 font_size = 50
 font_color = Color(0.968627, 0.823529, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_1optl")
