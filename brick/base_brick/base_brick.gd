@@ -14,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -34,5 +34,5 @@ func on_brick_damage() -> void:
 	GameManager.brick_damage.emit()
 
 
-func _on_area_2d_body_entered(body: Node2D):
+func _on_area_2d_body_entered(_body: Node2D):
 	pass # Replace with function body.

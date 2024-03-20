@@ -9,7 +9,7 @@ extends BaseBrick
 func _ready() -> void:
 	max_health = health
 	animated_sprite_2d.set_frame(health)
-	scale_factor = Vector2(2, 0.75)
+	scale_factor = Vector2(1.5, 0.75)
 	super._ready()
 
 

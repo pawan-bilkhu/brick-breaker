@@ -179,7 +179,6 @@ script = ExtResource("2_eb1vf")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_nwp3h")
-animation = &"snow"
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_5e54y")

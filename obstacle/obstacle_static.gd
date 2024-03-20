@@ -2,7 +2,7 @@ extends BaseBrick
 
 
 func _ready() -> void:
-	scale_factor = Vector2(2, 0.5)
+	scale_factor = Vector2(1.5, 0.5)
 	super._ready()
 
 

@@ -138,6 +138,8 @@ func create_brick(_health: int, _position: Vector2, key: SPRITES, _animation_tra
 		)
 	if _health > brick_sprite.frame_count:
 		brick_sprite.health = brick_sprite.frame_count
+	if _health < 0:
+		_health = 0
 
 func create_static(_health: int, start_position: Vector2, _animation_track: StringName) -> void:
 	create_brick(_health, start_position, BRICKS[0], _animation_track)

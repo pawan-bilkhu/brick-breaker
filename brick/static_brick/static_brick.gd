@@ -6,7 +6,7 @@ func _ready() -> void:
 	# frame_count = animated_sprite_2d.get_sprite_frames().get_frame_count("default")-1
 	# print(frame_count)
 	animated_sprite_2d.set_frame(health)
-	scale_factor = Vector2(2, 0.75)
+	scale_factor = Vector2(1.5, 0.75)
 	super._ready()
 
 

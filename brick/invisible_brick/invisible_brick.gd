@@ -9,7 +9,7 @@ func _ready() -> void:
 	health = frame_count
 	animated_sprite_2d.visible = false
 	animated_sprite_2d.set_frame(health)
-	scale_factor = Vector2(2, 0.75)
+	scale_factor = Vector2(1.5, 0.75)
 	super._ready()
 
 

@@ -116,8 +116,7 @@ func get_total_bricks() -> int:
 
 func set_total_bricks(value: int) -> void:
 	total_brick_count = value
-	print(total_brick_count)
 
 
-func generate_bricks(max_rows: int, max_columns: int, starting_position: Vector2, spacing_x: int, spacing_y: int) -> void:
+func generate_bricks(_max_rows: int, _max_columns: int, _starting_position: Vector2, _spacing_x: float, _spacing_y: float) -> void:
 	pass

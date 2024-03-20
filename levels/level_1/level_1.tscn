@@ -5,4 +5,3 @@
 
 [node name="Level1" instance=ExtResource("1_34wg0")]
 script = ExtResource("2_5kfo0")
-countdown_time = 1.0
