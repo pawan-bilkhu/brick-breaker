@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq0d7p36vuvl5"]
+
+[ext_resource type="PackedScene" uid="uid://b5qup7kmxmjcs" path="res://levels/base_level/base_level.tscn" id="1_34wg0"]
+[ext_resource type="Script" path="res://levels/level_1/level_1.gd" id="2_5kfo0"]
+
+[node name="Level1" instance=ExtResource("1_34wg0")]
+script = ExtResource("2_5kfo0")
+countdown_time = 1.0

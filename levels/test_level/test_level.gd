@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @onready var ball_spawn: Marker2D = $Spawn/BallSpawn
 @onready var paddle_spawn: Marker2D = $Spawn/PaddleSpawn
 @onready var game_start_timer: Timer = $GameStartTimer

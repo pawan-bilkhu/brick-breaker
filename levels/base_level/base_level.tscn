@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5qup7kmxmjcs"]
+
+[ext_resource type="Script" path="res://levels/base_level/base_level.gd" id="1_6fkg6"]
+[ext_resource type="PackedScene" uid="uid://6ufaqkarj8h4" path="res://walls/sidewall_static.tscn" id="2_e2bip"]
+[ext_resource type="PackedScene" uid="uid://ce17hm24csgjd" path="res://walls/topwall_static.tscn" id="3_n735y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_441eh"]
+font_size = 50
+font_color = Color(0.847059, 0, 0.784314, 1)
+shadow_color = Color(0.192157, 0.0117647, 0.372549, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cspc2"]
+font_size = 50
+font_color = Color(0.847059, 0, 0.784314, 1)
+shadow_size = 6
+shadow_color = Color(0.192157, 0.0117647, 0.372549, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_6fkg6")
+countdown_time = 3.0
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="right_sidewall_static" parent="Walls" instance=ExtResource("2_e2bip")]
+position = Vector2(0, 360)
+
+[node name="left_sidewall_static" parent="Walls" instance=ExtResource("2_e2bip")]
+position = Vector2(1280, 360)
+
+[node name="topwall_static" parent="Walls" instance=ExtResource("3_n735y")]
+position = Vector2(640, 0)
+
+[node name="Spawn" type="Node2D" parent="."]
+
+[node name="BallSpawn" type="Marker2D" parent="Spawn"]
+position = Vector2(640, 450)
+
+[node name="PaddleSpawn" type="Marker2D" parent="Spawn"]
+position = Vector2(640, 700)
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "0
+"
+label_settings = SubResource("LabelSettings_441eh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountdownLabel" type="Label" parent="HUD/MarginContainer"]
+z_index = 10
+layout_mode = 2
+text = "0
+"
+label_settings = SubResource("LabelSettings_cspc2")
+horizontal_alignment = 1
+
+[node name="GameStartTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="GameStartTimer" to="." method="_on_game_start_timer_timeout"]

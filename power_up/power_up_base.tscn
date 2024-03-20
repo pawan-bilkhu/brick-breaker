@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://power_up/power_up_base.gd" id="1_me7lm"]
 
-[node name="PowerUp" type="Sprite2D"]
+[node name="PowerUp" type="Sprite2D" groups=["power_up"]]
 script = ExtResource("1_me7lm")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

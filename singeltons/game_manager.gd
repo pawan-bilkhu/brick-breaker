@@ -24,6 +24,7 @@ signal game_over
 # Groups
 const GROUP_BALL: String = "ball"
 const GROUP_PADDLE: String = "paddle"
+const GROUP_POWER_UP: String = "power_up"
 const GROUP_BRICK: String = "brick"
 const GROUP_PROJECTILE: String = "projectile"
 
